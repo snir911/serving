@@ -153,6 +153,7 @@ func PodSpecMask(ctx context.Context, in *corev1.PodSpec) *corev1.PodSpec {
 	out.Volumes = in.Volumes
 	out.ImagePullSecrets = in.ImagePullSecrets
 	out.EnableServiceLinks = in.EnableServiceLinks
+	out.RuntimeClassName = in.RuntimeClassName
 
 	// Feature fields
 	if cfg.Features.PodSpecAffinity != config.Disabled {
@@ -187,7 +188,6 @@ func PodSpecMask(ctx context.Context, in *corev1.PodSpec) *corev1.PodSpec {
 	out.Priority = nil
 	out.DNSConfig = nil
 	out.ReadinessGates = nil
-	out.RuntimeClassName = nil
 
 	return out
 }
